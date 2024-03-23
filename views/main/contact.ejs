@@ -1,0 +1,61 @@
+<% layout('layouts/mainBoilerplate')%>
+    <main class="main-container d-flex home">
+        <div id="blur-overlay" class="hidden"></div>
+        <section class="hero-banner hero-6 d-flex">
+            <h1 class="hero-title">Contact Us</h1>
+        </section>
+        <article class="general-article d-flex b">
+            <h4 class="subhead-text no-margin w-90">Contact Info</h4>
+            <h2 class="head-title no-margin w-90">Get In Touch With<br id="mobile-b">With Us</h2>
+            <p class="section-text no-margin w-90"> Pellentesque elit eget gravida cum. Felis donec et odio
+                pellentesque.
+                Orci a scelerisque purus semper. Lacus laoreet non curabitur gravida. Semper quis lectus nulla at. A
+                lacus
+                vestibulum sed arcu non odio euismod lacinia at. Vel turpis nunc eget lorem dolor. Lacus sed turpis
+                tincidunt id aliquet risus feugiat. Mauris commodo quis imperdiet massa tincidunt nunc pulvinar. </p>
+        </article>
+        <article class="general-article w-article d-flex b">
+            <section class="contact-group w-90 d-flex">
+                <figure class="icon-img">
+                    <img src="/images/map-solid.svg" width="100%" height="100%" alt="map-icon">
+                </figure>
+                <h3 class="no-margin">Location</h3>
+                <p class="no-margin section-text">
+                    <%= contact[0].address %>
+                </p>
+            </section>
+            <section class="contact-group w-90 d-flex">
+                <figure class="icon-img">
+                    <img src="/images/phone-solid.svg" width="100%" height="100%" alt="phone-icon">
+                </figure>
+                <h3 class="no-margin">Phone</h3>
+                <p class="no-margin section-text"><a href="tel:4145558481">
+                        <%= contact[0].phone %>
+                    </a></p>
+            </section>
+            <section class="contact-group w-90 d-flex">
+                <figure class="icon-img">
+                    <img src="/images/envelope-solid.svg" width="100%" height="100%" alt="envelope-icon">
+                </figure>
+                <h3 class="no-margin">Email</h3>
+                <p class="no-margin section-text"><a href="mailto: kittysbeauty@petitoandco.com">
+                        <%= contact[0].email %>
+                    </a></p>
+            </section>
+            <section class="square-img rec-image rec-i-2 w-90"></section>
+        </article>
+        <!-- <div class="separator w-90"></div> -->
+        <article class="general-article d-flex b">
+            <h4 class="subhead-text no-margin w-90">Direct Message</h4>
+            <h2 class="head-title no-margin w-90">Send a<br id="mobile-b">Message</h2>
+            <form class="contact-form d-flex w-90 validated-form" action="/admin/inquiries" method="post" novalidate>
+                <input class="contact-fields" type="text" placeholder="Name" name="inquiry[name]" required>
+                <input class="contact-fields" type="text" placeholder="Email" name="inquiry[email]" required>
+                <input class="contact-fields" type="text" placeholder="Subject" name="inquiry[subject]" required>
+                <textarea class="contact-fields" name="inquiry[message]" rows="auto" placeholder="Message"
+                    required></textarea>
+                <button id="submit-btn" type="submit" class="btn-style" disabled> Send Message</button>
+            </form>
+            <button id="to-top-btn" class="subhead-text no-margin w-90">^ Back to the top ^</button>
+        </article>
+    </main>

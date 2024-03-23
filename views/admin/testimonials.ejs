@@ -1,0 +1,90 @@
+<% layout('layouts/adminBoilerplate')%>
+
+    <main class="main-container grow-test">
+
+        <div id="blur-overlay" class="hidden"></div>
+
+        <!-- ************************************************************* -->
+
+        <form id="delete-form" class="d-flex general-form delete-form hidden" action="admin/testimonials/"
+            method="post">
+            <h2>Are you sure you want to delete?</h2>
+            <button class="btn-style cancel-delete" type="button">Cancel</button>
+            <button class="btn-style" type="submit">Delete</button>
+        </form>
+
+        <!-- ************************************************************* -->
+
+        <h1 id="page-title">Testimonials</h1>
+        <%- include('../partials/flash') %>
+            <% if(testimonials.length !==0) {%>
+                <% for (let [ index, testi] of testimonials.entries()) { %>
+                    <form class="d-flex article-container validated-form"
+                        action="/admin/testimonials/stored/<%= testi.id %>" method="post" novalidate>
+                        <h2 class="article-title">New Testimonial (<%= (index + 1) %>)</h2>
+                        <div class="d-flex inquiry-form">
+                            <h3 class="inquiry-box inquiry-label">Name:</h3>
+
+                            <input class="q-testi-fields s-general input-<%= index %>" type="text"
+                                value="<%= testi.name %>" name="testimonial[name]" required disabled>
+                            <h3 class="inquiry-box inquiry-label">Email:</h3>
+
+                            <input class="q-testi-fields s-general input-<%= index %>" type="text"
+                                value="<%= testi.email %>" name="testimonial[email]" required disabled>
+                            <h3 class="inquiry-box inquiry-label">Message:</h3>
+
+                            <textarea name="testimonial[message]" rows="2" cols="50"
+                                class="q-testi-fields c-desc contact-field s-general description input-<%= index %>"
+                                required disabled><%= testi.message %></textarea>
+
+                        </div>
+                        <div class="button-area d-flex testimonial-btns">
+                            <button id="edit-testi" class="btn-alter c-btns" value="<%= testi.id %>"
+                                type="button">Edit</button>
+                            <button id="add-testi" class="btn-alter c-btns" value="<%= testi.id %>" type="submit"
+                                disabled>Add</button>
+                            <button id="delete-testi" class="btn-alter c-btns" value="<%= testi.id %>"
+                                type="button">Delete</button>
+                        </div>
+
+                    </form>
+                    <% } %>
+                        <% } else {%>
+                            <article class="d-flex article-container empty-inquiry">
+                                <h2 class="article-title">No New Testimonials</h2>
+                            </article>
+                            <% } %>
+
+                                <div class="separator"></div>
+
+                                <% if(storedTestimonials.length !==0) {%>
+                                    <% for (let [ index, testi] of storedTestimonials.entries()) { %>
+                                        <article class="d-flex article-container testi-entries">
+                                            <h2 class="article-title">Testimonial (<%= ++index %>)</h2>
+                                            <div class="d-flex inquiry-form">
+                                                <h3 class="inquiry-box inquiry-label">Name:</h3>
+                                                <div class="inquiry-box i-c-name">
+                                                    <%= testi.name %>
+                                                </div>
+                                                <h3 class="inquiry-box inquiry-label">Email:</h3>
+                                                <div class="inquiry-box i-c-name">
+                                                    <%= testi.email %>
+                                                </div>
+                                                <h3 class="inquiry-box inquiry-label">Message:</h3>
+                                                <div class="inquiry-box i-c-name">
+                                                    <%= testi.message %>
+                                                </div>
+
+                                            </div>
+                                            <button id="delete-s-testi" class="btn-alter c-btns" value="<%= testi.id %>"
+                                                type="submit">Delete</button>
+                                        </article>
+                                        <% } %>
+                                            <% } else {%>
+                                                <article class="d-flex article-container empty-inquiry">
+                                                    <h2 class="article-title">No Testimonials on Website!</h2>
+                                                </article>
+                                                <% } %>
+
+
+    </main>

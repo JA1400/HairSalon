@@ -1,0 +1,38 @@
+<% layout('layouts/adminBoilerplate')%>
+
+    <main class="main-container grow-test">
+        <div id="blur-overlay" class="hidden"></div>
+
+        <h1 id="page-title">Inquiries</h1>
+        <%- include('../partials/flash') %>
+            <% if(inquiries.length !==0) {%>
+                <% for (let [index, inquiry] of inquiries.entries()) { %>
+                    <article class="d-flex article-container">
+                        <h2 class="article-title">Inquiry (<%= (++index) %>)</h2>
+                        <form class="d-flex inquiry-form" action="/admin/inquiries/<%= inquiry.id %>?_method=DELETE"
+                            method="post">
+                            <h3 class="inquiry-box inquiry-label">Name:</h3>
+                            <div class="inquiry-box i-c-name">- <%= inquiry.name %>
+                            </div>
+                            <h3 class="inquiry-box inquiry-label">Email:</h3>
+                            <div class="inquiry-box i-c-name">- <%= inquiry.email %>
+                            </div>
+                            <h3 class="inquiry-box inquiry-label">Subject:</h3>
+                            <div class="inquiry-box i-c-name">- <%= inquiry.subject %>
+                            </div>
+                            <h3 class="inquiry-box inquiry-label">Message:</h3>
+                            <div class="inquiry-box i-c-name">
+                                <%= inquiry.message %>
+                            </div>
+                            <button class="btn-alter c-btns" type="submit">Delete</button>
+                        </form>
+                    </article>
+                    <% } %>
+                        <% } else {%>
+
+                            <article class="d-flex article-container empty-inquiry">
+                                <h2 class="article-title">No Inquiries</h2>
+
+                            </article>
+                            <% } %>
+    </main>

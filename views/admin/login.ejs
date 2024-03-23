@@ -1,0 +1,32 @@
+<% layout('layouts/adminLogin')%>
+    <main class="login-container d-flex">
+        <article id="login-top-piece" class="d-flex">
+            <div class="login-logo d-flex">
+                <p>Logo</p>
+            </div>
+        </article>
+
+        <article id="login-bottom-piece" class="d-flex">
+                <section class=" login-header">
+                    <h1 id="login-title">Log In</h1>
+                    <h3 id="title-subtext">Please sign in to continue</h3>
+                </section>
+                <form id="login-form" class="d-flex validated-form" action="/admin/login" method="post" novalidate>
+                    <%- include('../partials/loginFlash') %>
+                    <label for="email">Username</label>
+                    <input class="login-field" type="text" name="username" id="email" placeholder="Username" required>
+                    <label for="password">Password</label>
+                    <input class="login-field" type="password" name="password" id="password" placeholder="Password"
+                        required>
+                    <div class="l-f-btn d-flex">
+                        <button class="btn-style" type="submit">Log In</button>
+                    </div>
+                </form>
+                <footer class="login-footer d-flex">
+                    <h4>
+                        Copyright @2023 Kitty’s Hair & Makeup Salon | All Rights Reserved | Website design by JAC
+                        Solutions
+                    </h4>
+                </footer>
+        </article>
+    </main>

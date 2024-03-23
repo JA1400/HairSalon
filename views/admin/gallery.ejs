@@ -1,0 +1,56 @@
+<% layout('layouts/adminBoilerplate')%>
+
+    <main class="main-container grow-test">
+        <!-- ************************************************************* -->
+
+        <form id="delete-form" class="d-flex general-form delete-form hidden" action="admin/gallery/" method="post">
+            <h2>Are you sure you want to delete?</h2>
+            <button class="btn-style cancel-delete" type="button">Cancel</button>
+            <button class="btn-style" type="submit">Delete</button>
+        </form>
+
+        <!-- ************************************************************* -->
+
+        <form id="load-screen" class="d-flex general-form delete-form hidden" action="admin/gallery/" method="post">
+            <h2>Just a moment. . .</h2>
+            <div class="loading-animation">
+                <div class="circle"></div>
+            </div>
+        </form>
+
+        <!-- ************************************************************* -->
+
+        <div id="blur-overlay" class="hidden"></div>
+
+        <!-- ************************************************************* -->
+
+        <h1 id="page-title">Gallery Images</h1>
+
+        <%- include('../partials/flash') %>
+            <article class="d-flex article-container">
+                <form id="img-upload-form" class="d-flex" enctype="multipart/form-data" action="/admin/gallery"
+                    method="post">
+                    <h2 class="article-title g-title">Current Total: <%= images.length %>
+                    </h2>
+                    <div id="img-prev" class="d-flex">
+                        <img id="upload-icon" class="img-child" src="/images/image-solid.svg" width="20%" height="20%"
+                            alt="edit-icon">
+                    </div>
+                    <input type="file" name="image" id="img-file" accept="image/*">
+                    <div class="g-form-btns d-flex">
+                        <label id="img-in-label" class="btn-style sm-btn d-flex" for="img-file">Choose Photo</label>
+                        <button id="upload-btn" class="btn-style sm-btn" type="button" disabled>Add</button>
+                    </div>
+                </form>
+                <div class="store-imgs d-flex">
+                    <% for (const img of images) { %>
+                        <div class="img-group">
+                            <button type="button" value="<%= img.id %>" class="delete-img open-d-form btn-general">
+                                <img src="/images/trash-solid.svg" width="100%" height="100%" alt="trash-icon">
+                            </button>
+                            <img class="s-img" src="<%= img.image %><%= size %>" alt="stored-img">
+                        </div>
+                        <% } %>
+                </div>
+            </article>
+    </main>

@@ -1,0 +1,11 @@
+<% if(error && error.length) {%>
+    <div class="login-flash" role="alert">
+        <% console.log(error); %>
+            <%= error %>
+    </div>
+    <% } else if(success && success.length) {%>
+        <div class="login-flash s-flash" role="alert">
+            <% console.log(success); %>
+                <%= success %>
+        </div>
+        <% } %>

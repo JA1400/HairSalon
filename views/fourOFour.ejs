@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/normalize.css">
+    <link rel="stylesheet" href="/stylesheets/styles.css">
+    <link rel="stylesheet" href="/stylesheets/mainStyles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100;0,9..40,200;0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;0,9..40,900;0,9..40,1000;1,9..40,100;1,9..40,200;1,9..40,300;1,9..40,400;1,9..40,500;1,9..40,600;1,9..40,700;1,9..40,800;1,9..40,900;1,9..40,1000&display=swap"
+        rel="stylesheet">
+    <title>404 Page Not Found</title>
+</head>
+
+<body>
+    <%- include('./partials/mainNav') %>
+    <main class="main-container fof-container grow-test d-flex">
+        <div id="blur-overlay" class="hidden"></div>
+        <section>
+            <h1 id="fof-lg-title" class="margin-none">404</h1>
+        </section>
+        <section class="">
+            <h2 class="fof-sm-title margin-none">Accept our appologies!</h2>
+            <p class="section-text margin-none">
+                <%= message %>
+            </p>
+        </section>
+
+        <a id="fof-link" class="btn-alter" href="/home">Back Home</a>
+
+    </main>
+    <%- include('./partials/adminFooter') %>
+        <script src="/javascripts/adminMenu.js"></script>
+
+</body>
+
+</html>
