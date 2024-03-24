@@ -86,11 +86,6 @@ app.get('/favicon.ico', (req, res) => res.status(204));
 app.use('/admin', adminRoutes)
 
 app.use('/admin', adminLogin)
-app.get('/contact', async (req, res) => {
-    const contact = new Contact({ phone: '4145558481', email: 'test@email.com', address: 'jdiwoai daijowd kowp' })
-    await contact.save();
-    res.send(contact)
-})
 
 app.use('/', mainRoutes)
 
