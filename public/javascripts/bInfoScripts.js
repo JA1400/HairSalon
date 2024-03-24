@@ -231,21 +231,21 @@ try {
     otherBtns();
     dynamicTextArea();
 } catch (error) {
-    console.log('Not in Services Page!');
+
 }
 
 try {
     assignQTestimonialBtns()
     dynamicTextArea();
 } catch (error) {
-    console.log('Not in Testimonials Page!');
+
 }
 
 try {
     assignGBtns()
     iosFix()
 } catch (error) {
-    console.log('Not in Gallery Page!');
+
 }
 
 for (const tA of tAreas) {

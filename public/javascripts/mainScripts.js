@@ -51,7 +51,6 @@ if (mainEl.classList.contains('gallery')) {
                 let scrollTop = window.scrollY;
                 for (const img of lazyloadImages) {
                     let offset = img.getBoundingClientRect();
-                    console.log(offset.top);
                     if (offset.top < (window.innerHeight + scrollTop - 600)) {
                         img.src = img.dataset.src;
                         img.classList.remove('lazy');
