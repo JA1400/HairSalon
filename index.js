@@ -20,6 +20,7 @@ const passport = require('passport');
 const LocalStrategy = require('passport-local');
 const User = require('./models/user.js');
 const dbUrl = process.env.DB_URL;
+const secret = process.env.SECRET || 'thisshouldbeabettersecret';
 
 mongoose.connect(dbUrl)
     .then(() => {
@@ -43,12 +44,14 @@ const store = MongoStore.create({
     //time between resaves if data has not changed. in seconds!!
     touchAfter: 24 * 60 * 60,
     crypto: {
-        secret: 'bettersecret'
+        secret
     }
 })
 
 const sessionConfig = {
-    secret: 'thishouldbeabettersecret',
+    store,
+    name: 'session',
+    secret,
     resave: false,
     saveUninitialized: true,
     cookie: {
